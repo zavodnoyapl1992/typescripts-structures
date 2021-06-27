@@ -1,0 +1,40 @@
+import Stack from './index'
+
+test('checkPushAndPeak', () => {
+    const stack = new Stack<number>()
+    expect(stack.peek()).toBe(undefined)
+    stack.push(1)
+    expect(stack.peek()).toBe(1)
+    stack.push(2)
+    expect(stack.peek()).toBe(2)
+    expect(stack.peek()).toBe(2)
+    stack.push(3)
+    expect(stack.peek()).toBe(3)
+})
+
+test('checkPop', () => {
+    const stack = new Stack<number>()
+    stack.push(1)
+    stack.push(2)
+    stack.push(3)
+    expect(stack.pop()).toBe(3)
+    expect(stack.peek()).toBe(2)
+    expect(stack.pop()).toBe(2)
+    expect(stack.pop()).toBe(1)
+    expect(stack.pop()).toBe(undefined)
+    expect(stack.pop()).toBe(undefined)
+    stack.push(1)
+    expect(stack.pop()).toBe(1)
+    stack.push(10)
+    expect(stack.peek()).toBe(10)
+    expect(stack.pop()).toBe(10)
+})
+
+test('checkIsEmpty', () => {
+    const stack = new Stack<number>()
+    expect(stack.isEmpty()).toBe(true)
+    stack.push(1)
+    expect(stack.isEmpty()).toBe(false)
+    stack.pop()
+    expect(stack.isEmpty()).toBe(true)
+})

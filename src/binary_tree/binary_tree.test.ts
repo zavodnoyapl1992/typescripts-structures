@@ -1,0 +1,20 @@
+import BinaryTree from './index'
+
+test('checkBinaryTree', () => {
+    const binaryTree = new BinaryTree<number>([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14])
+    expect(binaryTree.value).toBe(0)
+    expect(binaryTree.left.value).toBe(1)
+    expect(binaryTree.right.value).toBe(2)
+    expect(binaryTree.left.left.value).toBe(3)
+    expect(binaryTree.left.right.value).toBe(4)
+    expect(binaryTree.right.left.value).toBe(5)
+    expect(binaryTree.right.right.value).toBe(6)
+    expect(binaryTree.left.left.left.value).toBe(7)
+    expect(binaryTree.left.left.right.value).toBe(8)
+    expect(binaryTree.left.right.left.value).toBe(9)
+    expect(binaryTree.left.right.right.value).toBe(10)
+    expect(binaryTree.right.left.left.value).toBe(11)
+    expect(binaryTree.right.left.right.value).toBe(12)
+    expect(binaryTree.right.right.left.value).toBe(13)
+    expect(binaryTree.right.right.right.value).toBe(14)
+})
