@@ -10,8 +10,11 @@ export default class BinaryTree<T>
 
     public value: T
 
+    public key: number
+
     constructor(values: T[], index: number = 0)
     {
+        this.key = index
         this.value = values[index]
         index = index*2 + 1
         if (values.length > index) {
@@ -23,12 +26,5 @@ export default class BinaryTree<T>
             this.right = new BinaryTree<T>(values, index + 1)
             this.right.parent = this
         }
-
     }
 }
-
-/**
-    0
-   1 2  // 1  1
- 3 4 5 6 // 2
- */

@@ -15,18 +15,17 @@ export default class List<T>
         this.data = data
         this.length = data.length
         this.currentValue = data[0] ?? undefined
+
         const self = this
-        this[Symbol.iterator] = function () {
-            return {
-                next() {
-                    let current = self.current()
-                    return {
-                        done: self.next(),
-                        value: current
-                    };
-                }
+        this[Symbol.iterator] =  () => ({
+            next() {
+                let current = self.current()
+                return {
+                    done: self.next(),
+                    value: current
+                };
             }
-        }
+        })
     }
 
     public current(): T|undefined
